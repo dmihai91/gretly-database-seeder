@@ -1,0 +1,35 @@
+type User {
+	fBaseUserId: String! @unique
+	fbUserId: String! @unique
+	googleUserId: String! @unique
+	username: String @unique
+	email: String @unique
+	name: String
+	createdAt: Date
+	modifiedAt: Date
+	lastLoggedIn: Date
+	role: Role
+	verified: Boolean
+	locked: Boolean
+	businessAccount: Boolean
+	type: Int
+	profilePicture: String
+	phoneNumber: String
+	companyInfo: CompanyInfo!
+	shortDescription: String
+	interests: [String]
+	education: Education
+	externalLink: String!
+}
+
+type Education @embedded {
+	type: String
+	domain: String
+	institution: String
+}
+
+type CompanyInfo @embedded {
+	country: String
+	address: String
+	vatNumber: String
+}

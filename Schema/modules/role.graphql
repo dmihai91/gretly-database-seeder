@@ -1,0 +1,11 @@
+type Role {
+	name: String @index(name: "role_by_name")
+	permissions: [Permission]
+}
+
+type Permission @embedded {
+	resource: String
+	type: String
+	value: Int
+	role: Role
+}
